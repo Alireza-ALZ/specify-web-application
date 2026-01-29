@@ -80,7 +80,7 @@ assert a persisted FormSubmission entity, and verify confirmation message.
 - **FR-009**: Verification method: [NEEDS CLARIFICATION: prefer SMS OTP, voice call fallback, or third-party authenticator?]
 
 - **FR-008**: Data retention policy for saved user information: Indefinite until user-requested deletion (retain data until user requests deletion; support export and deletion workflows).
-- **FR-009**: Verification method: Third-party authenticator (TOTP/app) as primary; SMS/voice may be considered later as optional fallbacks.
+-- **FR-009**: Verification method: Phone number + password authentication (hashed password stored). Optional MFA (TOTP) MAY be added later as an enhancement.
 
 ### Key Entities *(include if feature involves data)*
 
@@ -128,7 +128,7 @@ assert a persisted FormSubmission entity, and verify confirmation message.
 
 ## Clarifications (resolved)
 
-- Q1 (FR-009): Verification method — Chosen: Third-party authenticator (TOTP/app). Implication: higher initial setup friction but improved security and lower per-user messaging cost. SMS/voice fallback may be added later.
+- Q1 (FR-009): Verification method — Chosen: Phone number + password authentication (hashed password stored). Implication: straightforward implementation matching the provided data model. Optional MFA (TOTP) can be added later.
 - Q2 (FR-008): Data retention period — Chosen: Indefinite until user-requested deletion. Implication: must implement deletion/export workflows and privacy controls.
 
 ---
