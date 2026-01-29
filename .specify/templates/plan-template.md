@@ -29,9 +29,24 @@
 
 ## Constitution Check
 
+## Constitution Check
+
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-[Gates determined based on constitution file]
+All plans MUST include a brief "Constitution compliance" section that documents
+how the feature satisfies the project constitution. The following gates MUST
+be validated and described in `plan.md` before Phase 0 is considered complete:
+
+- Code Quality: linters/static analysis configured; complexity limits called out.
+- Modularity: module boundaries and public interfaces documented.
+- Testing: unit, integration, and contract test strategy and coverage targets.
+- UX: design token or component references and accessibility considerations.
+- Performance: measurable performance goals (latency, throughput, budgets) or a
+  justification for relaxed constraints.
+
+The plan MUST link to the specific tests, CI checks, or benchmarks used to
+validate each gate. Re-check these gates after Phase 1 design and prior to
+implementation.
 
 ## Project Structure
 
