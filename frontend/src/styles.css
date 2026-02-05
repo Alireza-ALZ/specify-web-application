@@ -1,0 +1,6 @@
+body { font-family: system-ui, Arial, sans-serif; margin: 32px; color: #111; }
+main { max-width: 680px; margin: 0 auto; }
+h1 { color: #0b74de; }
+form { display: grid; gap: 8px; }
+input[type="text"], input[type="password"] { padding: 8px; font-size: 16px; }
+button { padding: 10px 12px; background: #0b74de; color: white; border: none; border-radius: 4px; }

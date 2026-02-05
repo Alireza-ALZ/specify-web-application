@@ -1,0 +1,78 @@
+openapi: 3.0.3
+info:
+  title: Phone Auth + Form API
+  version: '0.1.0'
+paths:
+  /api/auth/signup:
+    post:
+      summary: Create user account (phone + password)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [phone_number, password]
+              properties:
+                phone_number:
+                  type: string
+                password:
+                  type: string
+      responses:
+        '201':
+          description: Created
+        '400':
+          description: Validation error
+
+  /api/auth/login:
+    post:
+      summary: Login with phone + password
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [phone_number, password]
+              properties:
+                phone_number:
+                  type: string
+                password:
+                  type: string
+      responses:
+        '200':
+          description: Authenticated (session cookie)
+        '401':
+          description: Unauthorized
+
+  /api/form/submit:
+    post:
+      summary: Submit user form (firstname, lastname)
+      security:
+        - cookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [firstname, lastname]
+              properties:
+                firstname:
+                  type: string
+                lastname:
+                  type: string
+      responses:
+        '200':
+          description: Submission recorded
+        '400':
+          description: Validation error
+        '401':
+          description: Unauthorized
+
+components:
+  securitySchemes:
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: session
