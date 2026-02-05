@@ -20,12 +20,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(sessionMiddleware);
 
+app.use(express.static(path.join(__dirname, '../../frontend')));
+
 app.use('/api/auth', authRoutes);
 app.use('/api/form', formRoutes);
-
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '../../frontend/index.html'));
-});
 
 app.use((err, req, res, next) => {
   console.error(err && err.stack ? err.stack : err);
